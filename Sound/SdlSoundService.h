@@ -3,7 +3,7 @@
 
 #include "main/avocado-global.h"
 
-#include "SPI/Abstract/Sound/SoundService.h"
+#include "main/Sound/SoundService.h"
 
 namespace avo {
 

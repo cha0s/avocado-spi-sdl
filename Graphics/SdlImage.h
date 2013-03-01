@@ -5,7 +5,7 @@
 
 #include "SDL/SDL.h"
 
-#include "SPI/Abstract/Graphics/Image.h"
+#include "main/Graphics/Image.h"
 
 namespace avo {
 

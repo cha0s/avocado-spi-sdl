@@ -1,6 +1,6 @@
 TARGET = CoreService-sdl
 
-include(../../Abstract/Core/Core.pri)
+include(../../../main/Core/Core.pri)
 
 SOURCES += \
 	\

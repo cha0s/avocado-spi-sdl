@@ -3,7 +3,7 @@
 
 #include "main/avocado-global.h"
 
-#include "SPI/Abstract/Timing/TimingService.h"
+#include "main/Timing/TimingService.h"
 
 namespace avo {
 

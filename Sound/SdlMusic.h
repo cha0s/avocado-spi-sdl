@@ -6,7 +6,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_mixer.h"
 
-#include "SPI/Abstract/Sound/Music.h"
+#include "main/Sound/Music.h"
 
 namespace avo {
 

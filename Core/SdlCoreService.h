@@ -3,7 +3,7 @@
 
 #include "main/avocado-global.h"
 
-#include "SPI/Abstract/Core//CoreService.h"
+#include "main/Core//CoreService.h"
 
 namespace avo {
 
