@@ -1,0 +1,4 @@
+*.spii
+*.so*
+*.o
+Makefile
