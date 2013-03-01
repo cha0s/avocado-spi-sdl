@@ -1,11 +1,11 @@
 #ifndef AVOCADO_SDLWINDOW_H
 #define AVOCADO_SDLWINDOW_H
 
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
 #include <string>
 
-#include "main/Graphics/Window.h"
+#include "core/Graphics/Window.h"
 
 #include "SdlImage.h"
 

@@ -1,12 +1,12 @@
 #ifndef AVOCADO_SDLMUSIC_H
 #define AVOCADO_SDLMUSIC_H
 
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_mixer.h"
 
-#include "main/Sound/Music.h"
+#include "core/Sound/Music.h"
 
 namespace avo {
 

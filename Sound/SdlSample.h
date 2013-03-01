@@ -1,12 +1,12 @@
 #ifndef AVOCADO_SDLSSAMPLE_H
 #define AVOCADO_SDLSSAMPLE_H
 
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_mixer.h"
 
-#include "main/Sound/Sample.h"
+#include "core/Sound/Sample.h"
 
 namespace avo {
 

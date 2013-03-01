@@ -1,6 +1,6 @@
 TARGET = GraphicsService-sdl
 
-include(../../../main/Graphics/Graphics.pri)
+include(../../../core/Graphics/Graphics.pri)
 
 SOURCES += \
 	\

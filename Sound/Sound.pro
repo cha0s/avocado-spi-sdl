@@ -1,6 +1,6 @@
 TARGET = SoundService-sdl
 
-include(../../../main/Sound/Sound.pri)
+include(../../../core/Sound/Sound.pri)
 
 SOURCES += \
 	\

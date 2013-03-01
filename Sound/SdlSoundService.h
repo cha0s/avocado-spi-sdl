@@ -1,9 +1,9 @@
 #ifndef AVOCADO_SDLSOUNDSERVICE_H
 #define AVOCADO_SDLSOUNDSERVICE_H
 
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
-#include "main/Sound/SoundService.h"
+#include "core/Sound/SoundService.h"
 
 namespace avo {
 

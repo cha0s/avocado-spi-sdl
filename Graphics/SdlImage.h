@@ -1,11 +1,11 @@
 #ifndef AVOCADO_SDLIMAGE_H
 #define AVOCADO_SDLIMAGE_H
 
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
 #include "SDL/SDL.h"
 
-#include "main/Graphics/Image.h"
+#include "core/Graphics/Image.h"
 
 namespace avo {
 

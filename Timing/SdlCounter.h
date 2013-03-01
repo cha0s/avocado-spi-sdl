@@ -1,11 +1,11 @@
 #ifndef AVOCADO_SDLCOUNTER_H
 #define AVOCADO_SDLCOUNTER_H
 
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
 #include <SDL/SDL.h>
 
-#include "main/Timing/Counter.h"
+#include "core/Timing/Counter.h"
 
 namespace avo {
 

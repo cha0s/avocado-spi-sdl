@@ -1,4 +1,4 @@
-#include "main/avocado-global.h"
+#include "core/avocado-global.h"
 
 #include <boost/extension/extension.hpp>
 
