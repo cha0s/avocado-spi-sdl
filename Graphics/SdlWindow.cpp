@@ -27,7 +27,7 @@ SdlWindow::~SdlWindow() {
 int mouseButtonMap(Uint8 button) {
 
 	int mappedButton;
-	std::map<std::string, int> MouseButtons = Window::Event::MouseButtons();
+	const std::map<std::string, int> &MouseButtons = Window::Event::MouseButtons();
 
 	switch (button) {
 		case SDL_BUTTON_LEFT: mappedButton = MouseButtons["ButtonLeft"]; break;
