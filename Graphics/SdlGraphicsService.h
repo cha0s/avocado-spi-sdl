@@ -26,8 +26,6 @@ public:
 
 	void close();
 
-	SpecialKeyCodes specialKeyCodes();
-
 	static AbstractFactory<SdlGraphicsService> *factory;
 
 private:

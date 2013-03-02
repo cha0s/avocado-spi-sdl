@@ -56,16 +56,4 @@ void SdlGraphicsService::close() {
 	GraphicsService::close();
 }
 
-GraphicsService::SpecialKeyCodes SdlGraphicsService::specialKeyCodes() {
-
-	SpecialKeyCodes keyMap;
-
-	keyMap.UpArrow = SDLK_UP;
-	keyMap.RightArrow = SDLK_RIGHT;
-	keyMap.DownArrow = SDLK_DOWN;
-	keyMap.LeftArrow = SDLK_LEFT;
-
-	return keyMap;
-}
-
 }
