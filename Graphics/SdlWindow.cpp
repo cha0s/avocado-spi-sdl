@@ -24,10 +24,28 @@ SdlWindow::~SdlWindow() {
 	delete image;
 }
 
+int mouseButtonMap(Uint8 button) {
+
+	int mappedButton;
+	std::map<std::string, int> MouseButtons = Window::Event::MouseButtons();
+
+	switch (button) {
+		case SDL_BUTTON_LEFT: button = MouseButtons["ButtonLeft"]; break;
+		case SDL_BUTTON_MIDDLE: button = MouseButtons["ButtonMiddle"]; break;
+		case SDL_BUTTON_RIGHT: button = MouseButtons["ButtonRight"]; break;
+		case SDL_BUTTON_WHEELUP: button = MouseButtons["WheelUp"]; break;
+		case SDL_BUTTON_WHEELDOWN: button = MouseButtons["WheelDown"]; break;
+		default: break;
+	}
+
+	return mappedButton;
+}
+
 Window::Event SdlWindow::pollEvents() {
 
 	Event event;
 	SDL_Event sdlEvent;
+
 	while (SDL_PollEvent(&sdlEvent)) {
 
 		switch (sdlEvent.type) {
@@ -114,18 +132,10 @@ Window::Event SdlWindow::pollEvents() {
 
 		case SDL_MOUSEBUTTONDOWN: {
 
-			Event::MouseButtons button;
-			switch (sdlEvent.button.button) {
-				case SDL_BUTTON_LEFT: button = Event::LeftButton; break;
-				case SDL_BUTTON_MIDDLE: button = Event::MiddleButton; break;
-				case SDL_BUTTON_RIGHT: button = Event::RightButton; break;
-				case SDL_BUTTON_WHEELUP: button = Event::WheelUp; break;
-				case SDL_BUTTON_WHEELDOWN: button = Event::WheelDown; break;
-			}
 			Event::MouseButtonDown mouseDown = {
 				sdlEvent.button.x,
 				sdlEvent.button.y,
-				button
+				mouseButtonMap(sdlEvent.button.button)
 			};
 			event.mouseButtonDown.push_back(mouseDown);
 
@@ -134,18 +144,10 @@ Window::Event SdlWindow::pollEvents() {
 
 		case SDL_MOUSEBUTTONUP: {
 
-			Event::MouseButtons button;
-			switch (sdlEvent.button.button) {
-				case SDL_BUTTON_LEFT: button = Event::LeftButton; break;
-				case SDL_BUTTON_MIDDLE: button = Event::MiddleButton; break;
-				case SDL_BUTTON_RIGHT: button = Event::RightButton; break;
-				case SDL_BUTTON_WHEELUP: button = Event::WheelUp; break;
-				case SDL_BUTTON_WHEELDOWN: button = Event::WheelDown; break;
-			}
 			Event::MouseButtonUp mouseUp = {
 				sdlEvent.button.x,
 				sdlEvent.button.y,
-				button
+				mouseButtonMap(sdlEvent.button.button)
 			};
 			event.mouseButtonUp.push_back(mouseUp);
 
