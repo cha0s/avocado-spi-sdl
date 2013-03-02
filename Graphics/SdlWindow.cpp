@@ -30,11 +30,11 @@ int mouseButtonMap(Uint8 button) {
 	std::map<std::string, int> MouseButtons = Window::Event::MouseButtons();
 
 	switch (button) {
-		case SDL_BUTTON_LEFT: button = MouseButtons["ButtonLeft"]; break;
-		case SDL_BUTTON_MIDDLE: button = MouseButtons["ButtonMiddle"]; break;
-		case SDL_BUTTON_RIGHT: button = MouseButtons["ButtonRight"]; break;
-		case SDL_BUTTON_WHEELUP: button = MouseButtons["WheelUp"]; break;
-		case SDL_BUTTON_WHEELDOWN: button = MouseButtons["WheelDown"]; break;
+		case SDL_BUTTON_LEFT: mappedButton = MouseButtons["ButtonLeft"]; break;
+		case SDL_BUTTON_MIDDLE: mappedButton = MouseButtons["ButtonMiddle"]; break;
+		case SDL_BUTTON_RIGHT: mappedButton = MouseButtons["ButtonRight"]; break;
+		case SDL_BUTTON_WHEELUP: mappedButton = MouseButtons["WheelUp"]; break;
+		case SDL_BUTTON_WHEELDOWN: mappedButton = MouseButtons["WheelDown"]; break;
 		default: break;
 	}
 
