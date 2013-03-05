@@ -135,7 +135,7 @@ void SdlImage::drawCircle(int x, int y, int radius, int r, int g, int b, int a, 
 	AVOCADO_UNUSED(drawMode);
 	if (NULL == surface) return;
 
-	circleRGBA(
+	filledCircleRGBA(
 		surface,
 		x, y,
 		radius,
