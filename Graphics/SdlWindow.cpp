@@ -253,7 +253,7 @@ Window::Event SdlWindow::pollEvents() {
 		case SDL_MOUSEBUTTONDOWN: {
 
 			int code = mouseButtonMap(sdlEvent.button.button);
-			if (-1 != code) {
+			if (code > 0) {
 
 				Event::MouseButtonDown mouseDown = {
 					sdlEvent.button.x,
@@ -265,7 +265,7 @@ Window::Event SdlWindow::pollEvents() {
 			else {
 
 				Event::MouseWheelMove mouseWheelMove = {
-					sdlEvent.button.button == SDL_BUTTON_WHEELUP ? 1 : -1,
+					sdlEvent.button.button == SDL_BUTTON_WHEELDOWN ? 1 : -1,
 				};
 				event.mouseWheelMove.push_back(mouseWheelMove);
 			}
