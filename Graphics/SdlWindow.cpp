@@ -153,8 +153,8 @@ int mouseButtonMap(Uint8 button) {
 		case SDL_BUTTON_LEFT: mappedButton = MouseButtons.at("ButtonLeft"); break;
 		case SDL_BUTTON_MIDDLE: mappedButton = MouseButtons.at("ButtonMiddle"); break;
 		case SDL_BUTTON_RIGHT: mappedButton = MouseButtons.at("ButtonRight"); break;
-		case SDL_BUTTON_WHEELUP: mappedButton = MouseButtons.at("WheelUp"); break;
-		case SDL_BUTTON_WHEELDOWN: mappedButton = MouseButtons.at("WheelDown"); break;
+		case SDL_BUTTON_WHEELUP: mappedButton = 0; break;
+		case SDL_BUTTON_WHEELDOWN: mappedButton = 0; break;
 		default: break;
 	}
 
@@ -252,12 +252,23 @@ Window::Event SdlWindow::pollEvents() {
 
 		case SDL_MOUSEBUTTONDOWN: {
 
-			Event::MouseButtonDown mouseDown = {
-				sdlEvent.button.x,
-				sdlEvent.button.y,
-				mouseButtonMap(sdlEvent.button.button)
-			};
-			event.mouseButtonDown.push_back(mouseDown);
+			int code = mouseButtonMap(sdlEvent.button.button);
+			if (-1 != code) {
+
+				Event::MouseButtonDown mouseDown = {
+					sdlEvent.button.x,
+					sdlEvent.button.y,
+					code
+				};
+				event.mouseButtonDown.push_back(mouseDown);
+			}
+			else {
+
+				Event::MouseWheelMove mouseWheelMove = {
+					sdlEvent.button.button == SDL_BUTTON_WHEELUP ? 1 : -1,
+				};
+				event.mouseWheelMove.push_back(mouseWheelMove);
+			}
 
 			break;
 		}
@@ -270,16 +281,6 @@ Window::Event SdlWindow::pollEvents() {
 				mouseButtonMap(sdlEvent.button.button)
 			};
 			event.mouseButtonUp.push_back(mouseUp);
-
-			break;
-		}
-
-		case SDL_MOUSEWHEEL: {
-
-			Event::MouseWheelMove mouseWheelMove = {
-				sdlEvent.wheel.y < 0 ? 1 : -1,
-			};
-			event.mouseWheelMove.push_back(mouseWheelMove);
 
 			break;
 		}
