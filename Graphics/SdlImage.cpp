@@ -29,34 +29,6 @@ SdlImage::SdlImage()
 {
 }
 
-SdlImage::SdlImage(void *data, unsigned int length)
-	: Image()
-	, surface(NULL)
-{
-
-	SDL_RWops *rwOps = SDL_RWFromMem(data, length);
-	SDL_Surface *rawImage = IMG_Load_RW(rwOps, false);
-
-	// Optimize it before returning it.
-	if (rawImage) {
-
-		surface = SDL_DisplayFormatAlpha(rawImage);
-
-		// And kill the original.
-		SDL_FreeSurface(rawImage);
-	}
-	else {
-
-		throw std::runtime_error(
-			"SdlImage::SdlImage(uri): IMG_Load failed. SDL says: " + std::string(SDL_GetError())
-		);
-	}
-
-	if (!surface) throw std::runtime_error(
-		"SdlImage::SdlImage(uri): SDL_DisplayFormatAlpha failed. SDL says: " + std::string(SDL_GetError())
-	);
-}
-
 SdlImage::SdlImage(int width, int height)
 	: Image()
 {

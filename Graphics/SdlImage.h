@@ -34,11 +34,6 @@ public:
 	SdlImage();
 
 	/**
-	 * Load an SDL_Surface from memory.
-	 */
-	SdlImage(void *data, unsigned int length);
-
-	/**
 	 * Load an SDL_Surface from a filename.
 	 */
 	SdlImage(const boost::filesystem::path &uri);
@@ -95,10 +90,6 @@ template <>
 class AbstractFactory<SdlImage> : public AbstractFactory<Image> {
 
 	virtual ~AbstractFactory<SdlImage>() {}
-
-	SdlImage *create(void *data, unsigned int length) {
-		return new SdlImage(data, length);
-	}
 
 	SdlImage *create(const boost::filesystem::path &uri) {
 		return new SdlImage(uri);
