@@ -274,6 +274,16 @@ Window::Event SdlWindow::pollEvents() {
 			break;
 		}
 
+		case SDL_MOUSEWHEEL: {
+
+			Event::MouseWheelMove mouseWheelMove = {
+				sdlEvent.wheel.y < 0 ? 1 : -1,
+			};
+			event.mouseWheelMove.push_back(mouseWheelMove);
+
+			break;
+		}
+
 		case SDL_MOUSEMOTION: {
 
 			Event::MouseMove mouseMove = {
