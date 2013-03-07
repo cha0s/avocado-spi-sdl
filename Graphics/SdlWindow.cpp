@@ -155,7 +155,7 @@ int mouseButtonMap(Uint8 button) {
 		case SDL_BUTTON_RIGHT: mappedButton = MouseButtons.at("ButtonRight"); break;
 		case SDL_BUTTON_WHEELUP: mappedButton = 0; break;
 		case SDL_BUTTON_WHEELDOWN: mappedButton = 0; break;
-		default: break;
+		default: mappedButton = -1; break;
 	}
 
 	return mappedButton;
