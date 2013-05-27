@@ -2,6 +2,7 @@
 
 #include "SdlGraphicsService.h"
 
+#include "SdlCanvas.h"
 #include "SdlImage.h"
 #include "SdlWindow.h"
 
@@ -11,6 +12,7 @@ AbstractFactory<SdlGraphicsService> *SdlGraphicsService::factory = new AbstractF
 
 SdlGraphicsService::SdlGraphicsService() {
 
+	Canvas::factoryManager.setInstance(SdlCanvas::factory);
 	Image::factoryManager.setInstance(SdlImage::factory);
 	Window::factoryManager.setInstance(SdlWindow::factory);
 
