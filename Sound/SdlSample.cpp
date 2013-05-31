@@ -13,7 +13,7 @@ SdlSample::SdlSample()
 
 SdlSample::SdlSample(const boost::filesystem::path &uri)
 {
-	sample = Mix_LoadWAV(uri.c_str());
+	sample = Mix_LoadWAV(uri.string().c_str());
 
 	if (!sample) {
 		throw std::runtime_error(

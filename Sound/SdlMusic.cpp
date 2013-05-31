@@ -13,7 +13,7 @@ SdlMusic::SdlMusic()
 
 SdlMusic::SdlMusic(const boost::filesystem::path &uri)
 {
-	music = Mix_LoadMUS(uri.c_str());
+	music = Mix_LoadMUS(uri.string().c_str());
 
 	if (!music) {
 		throw std::runtime_error(

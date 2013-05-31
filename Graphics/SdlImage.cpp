@@ -25,7 +25,7 @@ SdlImage::SdlImage(const boost::filesystem::path &uri)
 	);
 
 	// Load the filename.
-	SDL_Surface *rawImage = IMG_Load(uri.c_str());
+	SDL_Surface *rawImage = IMG_Load(uri.string().c_str());
 
 	// Optimize it before returning it.
 	if (rawImage) {
