@@ -2,3 +2,8 @@
 *.so*
 *.o
 Makefile
+Makefile.*
+obj
+debug
+release
+object_script.*
