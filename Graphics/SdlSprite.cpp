@@ -11,6 +11,8 @@
 
 namespace avo {
 
+AbstractFactory<SdlSprite> *SdlSprite::factory = new AbstractFactory<SdlSprite>;
+
 SdlSprite::SdlSprite()
 	: Sprite()
 	, alpha(1)

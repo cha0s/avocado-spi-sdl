@@ -45,6 +45,8 @@ public:
 
 	void setSourceRectangle(int x, int y, int w, int h);
 
+	static AbstractFactory<SdlSprite> *factory;
+
 	/**
 	 * Per pixel alpha blending.
 	 */
