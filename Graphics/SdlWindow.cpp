@@ -12,16 +12,16 @@ AbstractFactory<SdlWindow> *SdlWindow::factory = new AbstractFactory<SdlWindow>(
 
 SdlWindow::SdlWindow()
 	: Window()
-	, canvas(new SdlCanvas())
+	, _canvas(new SdlCanvas())
 {
 }
 
 SdlWindow::~SdlWindow() {
 
 	// SDL will free the surface automatically.
-	canvas->surface = NULL;
+	_canvas->_surface = NULL;
 
-	delete canvas;
+	delete _canvas;
 }
 
 int keyCodeMap(SDLKey keyCode) {
@@ -321,24 +321,6 @@ Window::Event SdlWindow::pollEvents() {
 	return event;
 }
 
-void SdlWindow::render(Canvas *working, int x, int y, int w, int h) {
-	AVOCADO_UNUSED(w);
-	AVOCADO_UNUSED(h);
-
-	working->render(x, y, canvas, 255, Canvas::DrawMode_PixelCopy);
-
-	SDL_UpdateRect(canvas->surface, 0, 0, 0, 0);
-}
-
-void SdlWindow::render(Image *working, int x, int y, int w, int h) {
-	AVOCADO_UNUSED(w);
-	AVOCADO_UNUSED(h);
-
-	working->render(x, y, canvas, 255, Image::DrawMode_PixelCopy);
-
-	SDL_UpdateRect(canvas->surface, 0, 0, 0, 0);
-}
-
 void SdlWindow::set() {
 
 	// We have to restore the video mode at least once, since we set dummy
@@ -385,7 +367,7 @@ void SdlWindow::set() {
 	if (flags() & Flags_Fullscreen) sdlFlags |= SDL_FULLSCREEN;
 
 	// Access the canvas internals to directly set the screen buffer.
-	canvas->surface = SDL_SetVideoMode(width(), height(), 32, sdlFlags);
+	_canvas->_surface = SDL_SetVideoMode(width(), height(), 32, sdlFlags);
 }
 
 void SdlWindow::setFlags(WindowFlags flags) {

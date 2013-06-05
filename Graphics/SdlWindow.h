@@ -31,10 +31,6 @@ public:
 
 	Event pollEvents();
 
-	void render(Canvas *working, int x, int y, int w, int h);
-
-	void render(Image *working, int x, int y, int w, int h);
-
 	void setFlags(WindowFlags flags = Flags_Default);
 
 	void setSize(int width, int height);
@@ -45,11 +41,13 @@ public:
 
 	static AbstractFactory<SdlWindow> *factory;
 
+	SdlCanvas *canvas();
+
 private:
 
 	void set();
 
-	SdlCanvas *canvas;
+	SdlCanvas *_canvas;
 };
 
 /**

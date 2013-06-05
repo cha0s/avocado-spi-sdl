@@ -4,6 +4,7 @@
 
 #include "SdlCanvas.h"
 #include "SdlImage.h"
+#include "SdlSprite.h"
 #include "SdlWindow.h"
 
 namespace avo {
@@ -14,6 +15,7 @@ SdlGraphicsService::SdlGraphicsService() {
 
 	Canvas::factoryManager.setInstance(SdlCanvas::factory);
 	Image::factoryManager.setInstance(SdlImage::factory);
+	Sprite::factoryManager.setInstance(SdlSprite::factory);
 	Window::factoryManager.setInstance(SdlWindow::factory);
 
 	// Center the window.
