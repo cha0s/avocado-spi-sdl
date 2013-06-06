@@ -39,7 +39,7 @@ public:
 
 	void setPosition(int x, int y);
 
-	void setRotation(double angle);
+	void setRotation(double angle, int orientX, int orientY);
 
 	void setScale(double factorX, double factorY);
 
@@ -78,6 +78,8 @@ private:
 	int y;
 
 	double angle;
+	int orientX;
+	int orientY;
 
 	double factorX;
 	double factorY;
