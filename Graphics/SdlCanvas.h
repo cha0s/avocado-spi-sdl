@@ -47,15 +47,15 @@ public:
 	 */
 	~SdlCanvas();
 
-	void drawCircle(int x, int y, int radius, int r, int g, int b, int a = 255, GraphicsService::BlendMode blendMode = GraphicsService::BlendMode_Blend);
+	void drawCircle(int x, int y, int radius, int r, int g, int b, double a, GraphicsService::BlendMode blendMode);
 
-	void drawFilledBox(int x, int y, int w, int h, int r, int g, int b, int a = 255, GraphicsService::BlendMode blendMode = GraphicsService::BlendMode_Blend);
+	void drawFilledBox(int x, int y, int w, int h, int r, int g, int b, double a, GraphicsService::BlendMode blendMode);
 
-	void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a = 255, GraphicsService::BlendMode blendMode = GraphicsService::BlendMode_Blend);
+	void drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, double a, GraphicsService::BlendMode blendMode);
 
-	void drawLineBox(int x, int y, int w, int h, int r, int g, int b, int a = 255, GraphicsService::BlendMode blendMode = GraphicsService::BlendMode_Blend);
+	void drawLineBox(int x, int y, int w, int h, int r, int g, int b, double a, GraphicsService::BlendMode blendMode);
 
-	void fill(int r, int g, int b, int a = 255);
+	void fill(int r, int g, int b, double a);
 
 	int height() const;
 

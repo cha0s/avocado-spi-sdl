@@ -103,52 +103,52 @@ unsigned int SdlCanvas::pixelAt(int x, int y) const {
 	return ((unsigned int *)_surface->pixels)[y * width() + x];
 }
 
-void SdlCanvas::drawCircle(int x, int y, int radius, int r, int g, int b, int a, GraphicsService::BlendMode blendMode) {
+void SdlCanvas::drawCircle(int x, int y, int radius, int r, int g, int b, double a, GraphicsService::BlendMode blendMode) {
 	if (NULL == _surface) return;
 
 	filledCircleRGBA(
 		_surface,
 		x, y,
 		radius,
-		r, g, b, GraphicsService::BlendMode_Blend == blendMode ? a : 255
+		r, g, b, 255.0 * GraphicsService::BlendMode_Blend == blendMode ? a : 1.0
 	);
 }
 
-void SdlCanvas::drawFilledBox(int x, int y, int w, int h, int r, int g, int b, int a, GraphicsService::BlendMode blendMode) {
+void SdlCanvas::drawFilledBox(int x, int y, int w, int h, int r, int g, int b, double a, GraphicsService::BlendMode blendMode) {
 	if (NULL == _surface) return;
 
 	boxRGBA(
 		_surface,
 		x, y, x + w - 1, y + h - 1,
-		r, g, b, GraphicsService::BlendMode_Blend == blendMode ? a : 255
+		r, g, b, 255.0 * GraphicsService::BlendMode_Blend == blendMode ? a : 1.0
 	);
 }
 
-void SdlCanvas::drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, int a, GraphicsService::BlendMode blendMode) {
+void SdlCanvas::drawLine(int x1, int y1, int x2, int y2, int r, int g, int b, double a, GraphicsService::BlendMode blendMode) {
 	if (NULL == _surface) return;
 
 	lineRGBA(
 		_surface,
 		x1, y1, x2, y2,
-		r, g, b, GraphicsService::BlendMode_Blend == blendMode ? a : 255
+		r, g, b, 255.0 * GraphicsService::BlendMode_Blend == blendMode ? a : 1.0
 	);
 }
 
-void SdlCanvas::drawLineBox(int x, int y, int w, int h, int r, int g, int b, int a, GraphicsService::BlendMode blendMode) {
+void SdlCanvas::drawLineBox(int x, int y, int w, int h, int r, int g, int b, double a, GraphicsService::BlendMode blendMode) {
 	if (NULL == _surface) return;
 
 	rectangleRGBA(
 		_surface,
 		x, y, x + w - 1, y + h - 1,
-		r, g, b, GraphicsService::BlendMode_Blend == blendMode ? a : 255
+		r, g, b, 255.0 * GraphicsService::BlendMode_Blend == blendMode ? a : 1.0
 	);
 }
 
-void SdlCanvas::fill(int r, int g, int b, int a) {
+void SdlCanvas::fill(int r, int g, int b, double a) {
 	if (NULL == _surface) return;
 
 	SDL_Rect rect = {0, 0, width(), height()};
-	SDL_FillRect(_surface, &rect, SDL_MapRGBA(_surface->format, r, g, b, a));
+	SDL_FillRect(_surface, &rect, SDL_MapRGBA(_surface->format, r, g, b, a * 255.0));
 }
 
 int SdlCanvas::height() const {
