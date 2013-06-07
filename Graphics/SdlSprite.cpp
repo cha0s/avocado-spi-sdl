@@ -75,7 +75,7 @@ void SdlSprite::renderTo(SDL_Surface *destination, bool copyPixels) const {
 			surface = Image::superCast<SdlImage>(image())->surface();
 		}
 		else if (canvas()) {
-			surface = Canvas::superCast<SdlImage>(canvas())->surface();
+			surface = Canvas::superCast<SdlCanvas>(canvas())->surface();
 		}
 
 		int sIdx = sy * surface->w + sx;
