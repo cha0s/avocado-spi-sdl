@@ -39,9 +39,9 @@ public:
 
 	void setWindowTitle(const std::string &window, const std::string &iconified = "");
 
-	static AbstractFactory<SdlWindow> *factory;
-
 	SdlCanvas *canvas();
+
+	static AbstractFactory<SdlWindow> *factory;
 
 private:
 

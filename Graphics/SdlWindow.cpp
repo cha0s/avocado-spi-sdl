@@ -394,5 +394,9 @@ void SdlWindow::setWindowTitle(const std::string &window, const std::string &ico
 	);
 }
 
+SdlCanvas *SdlWindow::canvas() {
+	return _canvas;
+}
+
 }
 
