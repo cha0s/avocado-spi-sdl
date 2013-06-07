@@ -145,8 +145,8 @@ void SdlSprite::renderTo(SDL_Surface *destination, bool copyPixels) const {
 				if (copyPixels) {
 					*dst = *src;
 				}
-				else if (GraphicsService::BlendMode_Replace == blendMode || (255 == alpha && 255 == sc[3])) {
-					dstColor = 255 << 24 | 255 << 16;
+				else if (GraphicsService::BlendMode_Replace == blendMode || (1 == alpha && 1 == sc[3])) {
+					dstColor = 255 << 24;
 					*dst = blendPixel(*src, dstColor, alpha);
 				}
 				else {
