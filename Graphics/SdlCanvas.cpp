@@ -147,7 +147,10 @@ void SdlCanvas::drawLineBox(int x, int y, int w, int h, int r, int g, int b, dou
 void SdlCanvas::fill(int r, int g, int b, double a) {
 	if (NULL == _surface) return;
 
-	SDL_Rect rect = {0, 0, width(), height()};
+	SDL_Rect rect = {
+		0, 0,
+		static_cast<Uint16>(width()), static_cast<Uint16>(height())
+	};
 	SDL_FillRect(_surface, &rect, SDL_MapRGBA(_surface->format, r, g, b, a * 255.0));
 }
 
